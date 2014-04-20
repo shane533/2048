@@ -4,6 +4,7 @@
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
   this.sharingContainer = document.querySelector(".score-sharing");
+  this.timerContainer   = document.querySelector(".timer-container");
 
   this.score = 0;
 }
@@ -67,7 +68,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   text[11] = "贵妃";
   text[12] = "皇贵妃";
   text[13] = "皇后";
-  text[14] = "明";
+  text[14] = "皇太后";
   text[15] = "清";
   text[16] = " ";
   text[17] = " ";
@@ -149,6 +150,11 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
 };
 
+HTMLActuator.prototype.updateTimer = function (seconds) {
+//TODO
+  this.timerContainer.textContext = seconds;
+};
+
 HTMLActuator.prototype.message = function (won) {
   var mytxt=new Array(14);
   mytxt[0]="连秦始皇都见不到了T.T";
@@ -193,13 +199,13 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   var tweet = document.createElement("a");
   tweet.classList.add("twitter-share-button");
   tweet.setAttribute("href", "https://twitter.com/share");
-  tweet.setAttribute("data-via", "oprilzeng");
-  tweet.setAttribute("data-url", "http://oprilzeng.github.io/2048/full");
-  tweet.setAttribute("data-counturl", "http://oprilzeng.github.io/2048/full/");
+  tweet.setAttribute("data-via", "shane533");
+  tweet.setAttribute("data-url", "http://shane533.github.io/2048/2048/full");
+  tweet.setAttribute("data-counturl", "http://shane533.github.io/2048/2048/full/");
   tweet.textContent = "Tweet";
 
-  var text = "I scored " + this.score + " points at PRC2048-Full edition, a game where you " +
-             "join numbers to score high! #PRC2048";
+  var text = "I scored " + this.score + " points at GD2048-Full edition, a game where you " +
+             "join numbers to score high! #GD2048";
   tweet.setAttribute("data-text", text);
 
   return tweet;

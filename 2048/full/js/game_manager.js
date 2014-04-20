@@ -1,10 +1,11 @@
 var maxscore = 2;
 
-function GameManager(size, InputManager, Actuator, ScoreManager) {
+function GameManager(size, InputManager, Actuator, ScoreManager, Timer) {
   this.size         = size; // Size of the grid
   this.inputManager = new InputManager;
   this.scoreManager = new ScoreManager;
   this.actuator     = new Actuator;
+  this.timer	    = new Timer;
 
   this.startTiles   = 2;
 
@@ -44,6 +45,8 @@ GameManager.prototype.setup = function () {
   this.over        = false;
   this.won         = false;
   this.keepPlaying = false;
+  
+  this.timer.reset();
 
   // Add the initial tiles
   this.addStartTiles();
